@@ -28,6 +28,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 h1 {
@@ -38,13 +47,22 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.5em 1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  button {
+    padding: 0.4em 0.8em;
+    font-size: 0.9em;
+  }
 }
 button:hover {
   border-color: #646cff;

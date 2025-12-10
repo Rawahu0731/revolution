@@ -1,8 +1,15 @@
 #root {
-  max-width: 1280px;
+  max-width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0.5rem;
   text-align: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .logo {
@@ -34,7 +41,10 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .read-the-docs {
@@ -44,10 +54,34 @@
 /* Spinner / rotation display */
 .rotation-area {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.canvas-wrap {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: calc(100vw - 2rem);
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .rotation-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .canvas-wrap {
+    margin: 0 auto;
+    max-width: calc(100vw - 1rem);
+  }
 }
 
 .spinner {
@@ -91,12 +125,21 @@
 .canvas-wrap {
   position: relative;
   display: inline-block;
+  flex-shrink: 0;
+  max-width: calc(100vw - 2rem);
+  overflow: visible;
 }
 .canvas-wrap canvas {
   position: absolute;
   left: 0;
   top: 0;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .canvas-wrap {
+    max-width: calc(100vw - 1rem);
+  }
 }
 .trail-canvas {
   z-index: 0;
@@ -109,19 +152,53 @@
 .rot-values {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   text-align: left;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-width: 280px;
+  max-width: 100%;
 }
 .rot-value-item {
   background: rgba(10,10,10,0.04);
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.95rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .rot-values {
+    width: 100%;
+    max-height: none;
+  }
+  .rot-value-item {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
 }
 
 .score {
   text-align: center;
   font-weight: 700;
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.color-numbers {
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .score {
+    font-size: 0.9rem;
+  }
+  .color-numbers {
+    font-size: 0.85rem;
+  }
 }
